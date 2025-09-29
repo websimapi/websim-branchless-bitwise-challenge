@@ -58,6 +58,44 @@ h1 {
     margin: 5px 0;
 }
 
+#joystick-container {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+    display: none;
+}
+
+#joystick-base {
+    width: 120px;
+    height: 120px;
+    background: rgba(0, 255, 255, 0.1);
+    border: 2px solid rgba(0, 255, 255, 0.5);
+    border-radius: 50%;
+    position: relative;
+    backdrop-filter: blur(5px);
+}
+
+#joystick-stick {
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle, rgba(0, 255, 255, 0.8), rgba(0, 255, 255, 0.4));
+    border: 2px solid #00ffff;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: none;
+    pointer-events: none;
+}
+
+#players-display {
+    font-size: 18px;
+    color: #ffaa00;
+    text-shadow: 0 0 5px #ffaa00;
+}
+
 @media (max-width: 850px) {
     #game-canvas {
         width: 90vw;
@@ -70,5 +108,46 @@ h1 {
         gap: 10px;
         text-align: center;
     }
+    
+    #joystick-container {
+        display: block;
+    }
+    
+    #game-canvas {
+        width: 95vw;
+        height: auto;
+        touch-action: none;
+    }
+    
+    #header {
+        width: 95vw;
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    h1 {
+        font-size: 20px;
+    }
+    
+    #score-display, #players-display {
+        font-size: 16px;
+    }
+    
+    #instructions {
+        font-size: 12px;
+        padding: 0 10px;
+    }
 }
 
+@media (max-width: 480px) {
+    #joystick-base {
+        width: 100px;
+        height: 100px;
+    }
+    
+    #joystick-stick {
+        width: 30px;
+        height: 30px;
+    }
+}
